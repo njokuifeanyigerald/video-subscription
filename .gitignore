@@ -1,0 +1,6 @@
+/courses/__pycache__
+/courses/migrations
+/video_sub/__pycache__
+/video/__pycache__
+/video/migrations
+/db.sqlite3

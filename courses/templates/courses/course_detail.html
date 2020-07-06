@@ -1,0 +1,17 @@
+{% extends 'courses/base.html'%}
+    {% block body %}
+    <div class="container mt-5">
+        <ul class="list-group">
+            <li class="list-group-item">{{object.title}}</li>
+            <li class="list-group-item">{{object.description}}</li>
+            <li class="list-group-item">
+                {% for lesson in object.lessons %}
+                    <a href="{{lesson.get_absolute_url}}">{{lesson.title}}</a>
+                {% endfor %}
+            </li>
+
+        </ul>
+        
+        
+    </div>
+    {% endblock %}
