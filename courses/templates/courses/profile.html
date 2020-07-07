@@ -1,0 +1,12 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "profile" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "profile" %}</h1>
+
+<p class="lead">hi {{user.username}}</p>
+
+{% endblock %}
