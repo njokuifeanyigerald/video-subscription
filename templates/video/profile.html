@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2>My profile</h2>
+    <div class="row text-capitalize">
+        
+        <div class="col-sm-4 col-md-4">
+            {% if user_subscription !=  None %}
+            <h4>
+                Current Membership: {{user_membership.membership.membership_type}}
+                <small> Since {{user_subscription.get_created_date}}</small>
+                {% if user_subscription.active != False %}
+                <p>Next Payment due: {{user_subscription.get_next_billing_date}}</p>
+                <a href="{% url 'videos:cancel' %}">cancel Subscription</a>
+                {% else %}
+                <p> you dont have an active membership plan.
+                    check them out here
+                    <a href="{% url 'videos:select' %}">
+                        <button class="btn btn-outline-warning bg-lg">select a plan</button>
+                    </a>
+                </p>
+                {% endif %}
+            </h4>
+            {% else %}
+            <p> you dont have an active membership plan.
+                check them out here
+                <a href="{% url 'videos:select' %}">
+                    <button class="btn btn-outline-warning bg-lg">select a plan</button>
+                </a>
+            </p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
