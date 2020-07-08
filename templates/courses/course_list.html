@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+   {% block content %}
+    <div class="container mt-5">
+        <h1 style="font-family: monospace;">#BlackLivesMatter</h1>
+        {% for object in object_list %}
+            <ul class="list-group">
+                <li class="list-group-item"><a href="{{object.get_absolute_url}}">{{object}}</a></li>
+            </ul>
+        {% endfor %}
+
+    </div>
+    {% endblock %}

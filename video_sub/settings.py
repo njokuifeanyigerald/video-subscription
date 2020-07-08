@@ -76,7 +76,7 @@ ROOT_URLCONF = 'video_sub.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -159,3 +159,5 @@ else:
 
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_UNIQUE_EMAIL =True
+ACCOUNT_EMAIL_REQUIRED = True
+
