@@ -1,11 +1,30 @@
 {% extends 'base.html'%}
+{% block head_title %}
+{% if object is not None %}
+    <li><a href="{{object.course.get_absolute_url}}">{{object.course.title}}</a></li>
+    <li>{{object.title}}</li>
+{% endif %}
+
+{% endblock %}
 {% block content %}
-    <h1>Lesson Detail View</h1>
-    {% if object is not None %}
-    {{object.title}}
-    {{object.description}}
-    {% else %}
-    <h3>Upgrade membership</h3>
-    {% endif %}
+    <div class="container text-capitalize">
+        <h1>Lesson Detail View</h1>
+        {% if object is not None %}
+        {{object.title}}
+        {{object.description}}
+        <div></div>
+        <video controls controlsList="nodownload"
+        poster={{object.thumbnail.url}}
+        src="/static{{object.video_url}}"
+        width="400"
+        height="300">Sorry, your browser doesn't support embedded videos</video>
+        </div>
+        {% else %}
+        <h3>Upgrade membership</h3>
+        <p>to view this course, you'll need to upgrade your membership</p>
+        <br>
+        <a href="{% url 'videos:select' %}"><button class="btn btn-outline-warning btn-lg"> check our memberships plan</button></a>
+        {% endif %}
+    </div>
     
 {% endblock %}

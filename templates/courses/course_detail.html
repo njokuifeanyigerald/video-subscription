@@ -1,9 +1,15 @@
 {% extends 'base.html'%}
+{% block head_title %}
+{% if object is not None %}
+    {{object.title}}
+{% endif %}
+
+{% endblock %}
     {% block content %}
     <div class="container mt-5">
+        <h3 class="text-uppercase">{{object.title}}</h3>
+        <h3 class=" lead">{{object.description}}</h3>
         <ul class="list-group">
-            <li class="list-group-item">{{object.title}}</li>
-            <li class="list-group-item">{{object.description}}</li>
             <li class="list-group-item">
                 {% for lesson in object.lessons %}
                     <a href="{{lesson.get_absolute_url}}">{{lesson.title}}</a>
